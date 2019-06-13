@@ -33,7 +33,14 @@
                             <outlet property="delegate" destination="HRw-Xb-WPN" id="ljs-jf-k2k"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Recipe List" id="8eq-dp-4Sb"/>
+                    <navigationItem key="navigationItem" title="Recipe List" id="8eq-dp-4Sb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qH1-gj-gOl">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="HRw-Xb-WPN" id="UE1-TM-yKa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OCS-0w-goj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

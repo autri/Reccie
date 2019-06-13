@@ -10,7 +10,7 @@ import UIKit
 
 class RecipeListVC: UITableViewController {
 
-    let recipeList = ["Cake", "Pizza", "Rice"]
+    var recipeList = ["Cake", "Pizza", "Rice"]
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -36,6 +36,28 @@ class RecipeListVC: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    //MARK - Add New Recipes
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Add New Recipe", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Add Recipe", style: .default) { (action) in
+            // what happens when user taps Add Recipe button
+            print(textField.text!)
+            self.recipeList.append(textField.text!)
+            self.tableView.reloadData()
+        }
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Create new recipe"
+            textField = alertTextField
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
     
 
 }
