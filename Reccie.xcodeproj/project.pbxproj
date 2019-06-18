@@ -3,18 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0661A24E22B70BD90065F636 /* StepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661A24D22B70BD90065F636 /* StepVC.swift */; };
+		0661A25022B8888F0065F636 /* RecipeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661A24F22B8888F0065F636 /* RecipeDetailVC.swift */; };
+		0661A25222B888B50065F636 /* RecipeAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661A25122B888B50065F636 /* RecipeAddVC.swift */; };
+		0661A25422B888E50065F636 /* IngredientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661A25322B888E50065F636 /* IngredientVC.swift */; };
+		0669808222B3622200231C2F /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0669808022B3622200231C2F /* DataModel.xcdatamodeld */; };
 		06B39D6922B0A28100AF219A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B39D6822B0A28100AF219A /* AppDelegate.swift */; };
 		06B39D6B22B0A28100AF219A /* RecipeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B39D6A22B0A28100AF219A /* RecipeListVC.swift */; };
 		06B39D6E22B0A28100AF219A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B39D6C22B0A28100AF219A /* Main.storyboard */; };
 		06B39D7022B0A28200AF219A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06B39D6F22B0A28200AF219A /* Assets.xcassets */; };
 		06B39D7322B0A28200AF219A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B39D7122B0A28200AF219A /* LaunchScreen.storyboard */; };
+		4D19A5E5C9C1E9CB26FE4EB6 /* Pods_Reccie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3F39829B797A60E3C913CD /* Pods_Reccie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0661A24D22B70BD90065F636 /* StepVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepVC.swift; sourceTree = "<group>"; };
+		0661A24F22B8888F0065F636 /* RecipeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailVC.swift; sourceTree = "<group>"; };
+		0661A25122B888B50065F636 /* RecipeAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAddVC.swift; sourceTree = "<group>"; };
+		0661A25322B888E50065F636 /* IngredientVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientVC.swift; sourceTree = "<group>"; };
+		0669808122B3622200231C2F /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		06B39D6522B0A28100AF219A /* Reccie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reccie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B39D6822B0A28100AF219A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06B39D6A22B0A28100AF219A /* RecipeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListVC.swift; sourceTree = "<group>"; };
@@ -22,6 +33,9 @@
 		06B39D6F22B0A28200AF219A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06B39D7222B0A28200AF219A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06B39D7422B0A28200AF219A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3FA01FD28898BAA738ADD00 /* Pods-Reccie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reccie.debug.xcconfig"; path = "Target Support Files/Pods-Reccie/Pods-Reccie.debug.xcconfig"; sourceTree = "<group>"; };
+		F0C93D4036E4AD786D86CAF0 /* Pods-Reccie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reccie.release.xcconfig"; path = "Target Support Files/Pods-Reccie/Pods-Reccie.release.xcconfig"; sourceTree = "<group>"; };
+		FC3F39829B797A60E3C913CD /* Pods_Reccie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reccie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +43,57 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D19A5E5C9C1E9CB26FE4EB6 /* Pods_Reccie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0669807C22B3511B00231C2F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0669808022B3622200231C2F /* DataModel.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0669807D22B3512A00231C2F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				06B39D6A22B0A28100AF219A /* RecipeListVC.swift */,
+				0661A24D22B70BD90065F636 /* StepVC.swift */,
+				0661A24F22B8888F0065F636 /* RecipeDetailVC.swift */,
+				0661A25122B888B50065F636 /* RecipeAddVC.swift */,
+				0661A25322B888E50065F636 /* IngredientVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0669807E22B3513700231C2F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				06B39D6C22B0A28100AF219A /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0669807F22B3514800231C2F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				06B39D6F22B0A28200AF219A /* Assets.xcassets */,
+				06B39D7122B0A28200AF219A /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		06B39D5C22B0A28100AF219A = {
 			isa = PBXGroup;
 			children = (
 				06B39D6722B0A28100AF219A /* Reccie */,
 				06B39D6622B0A28100AF219A /* Products */,
+				CE66115E92B9FFF70D8B8B32 /* Pods */,
+				7DD4207E1FC7AA3F14D365CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +109,30 @@
 			isa = PBXGroup;
 			children = (
 				06B39D6822B0A28100AF219A /* AppDelegate.swift */,
-				06B39D6A22B0A28100AF219A /* RecipeListVC.swift */,
-				06B39D6C22B0A28100AF219A /* Main.storyboard */,
-				06B39D6F22B0A28200AF219A /* Assets.xcassets */,
-				06B39D7122B0A28200AF219A /* LaunchScreen.storyboard */,
+				0669807C22B3511B00231C2F /* Models */,
+				0669807D22B3512A00231C2F /* Controllers */,
+				0669807E22B3513700231C2F /* Views */,
+				0669807F22B3514800231C2F /* Supporting Files */,
 				06B39D7422B0A28200AF219A /* Info.plist */,
 			);
 			path = Reccie;
+			sourceTree = "<group>";
+		};
+		7DD4207E1FC7AA3F14D365CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC3F39829B797A60E3C913CD /* Pods_Reccie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE66115E92B9FFF70D8B8B32 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3FA01FD28898BAA738ADD00 /* Pods-Reccie.debug.xcconfig */,
+				F0C93D4036E4AD786D86CAF0 /* Pods-Reccie.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +142,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06B39D7722B0A28200AF219A /* Build configuration list for PBXNativeTarget "Reccie" */;
 			buildPhases = (
+				E876B83CD96B6347B36A938B /* [CP] Check Pods Manifest.lock */,
 				06B39D6122B0A28100AF219A /* Sources */,
 				06B39D6222B0A28100AF219A /* Frameworks */,
 				06B39D6322B0A28100AF219A /* Resources */,
+				B17234EA10409B2E149C8709 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,12 +203,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B17234EA10409B2E149C8709 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Reccie/Pods-Reccie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Reccie/Pods-Reccie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Reccie/Pods-Reccie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E876B83CD96B6347B36A938B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Reccie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		06B39D6122B0A28100AF219A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0661A25222B888B50065F636 /* RecipeAddVC.swift in Sources */,
+				0661A24E22B70BD90065F636 /* StepVC.swift in Sources */,
+				0661A25422B888E50065F636 /* IngredientVC.swift in Sources */,
+				0669808222B3622200231C2F /* DataModel.xcdatamodeld in Sources */,
 				06B39D6B22B0A28100AF219A /* RecipeListVC.swift in Sources */,
+				0661A25022B8888F0065F636 /* RecipeDetailVC.swift in Sources */,
 				06B39D6922B0A28100AF219A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +400,7 @@
 		};
 		06B39D7822B0A28200AF219A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3FA01FD28898BAA738ADD00 /* Pods-Reccie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +419,7 @@
 		};
 		06B39D7922B0A28200AF219A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0C93D4036E4AD786D86CAF0 /* Pods-Reccie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -336,6 +458,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0669808022B3622200231C2F /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0669808122B3622200231C2F /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 0669808122B3622200231C2F /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 06B39D5D22B0A28100AF219A /* Project object */;
 }
