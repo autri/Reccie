@@ -11,7 +11,8 @@ import UIKit
 class RecipeDetailVC: UIViewController {
     
     
-    var recipeObj = Recipe()
+    var recipeObj: Recipe? = nil
+    
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeTimeMins: UILabel!
     @IBOutlet weak var recipeServing: UILabel!
@@ -31,11 +32,25 @@ class RecipeDetailVC: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
-        recipeName.text = recipeObj.name
-        recipeTimeMins.text = recipeObj.time as? String
-        recipeServing.text = recipeObj.serving as? String
-        recipeFavorite.text = recipeObj.favorite as? String
+        recipeName.text = recipeObj!.name
+        recipeTimeMins.text = String(recipeObj!.time) + " minutes"
+        recipeServing.text = String(recipeObj!.serving) + " servings"
+        recipeFavorite.text = "Favorite Status: " + (recipeObj!.favorite ? "True" : "False")
+
+        recipeIngredients.text = recipeObj?.ingredients?.value(forKey: "name") as? String
+        recipeSteps.text = recipeObj?.steps?.value(forKey: "name") as? String
+        
+//        // add ingredients, using foreach
+//        recipeIngredients?.forEach({ (ingredient) in
+//            self.recipeObj!.addToIngredients(ingredient)
+//        })
+//
+//        // add steps, using foreach
+//        recipeSteps?.forEach({ (step) in
+//            self.recipeObj!.addToSteps(step)
+//        })
     }
 
     

@@ -1,0 +1,25 @@
+Keywords:
+- Table Views
+- Core Data
+- Navigation Controller
+- View Controllers
+- Storyboards
+
+Recipe List
+- Displays list of previously created recipes
+- Allows user to search for existing recipes
+- Allows user to add new recipe
+
+Recipe Detail
+- Displays specific recipe
+- Allow for edit
+- Allow for deletion
+
+Recipe Add
+- Allows for creation of new recipe, steps, and ingredients
+
+Steps Add
+- 
+
+Ingredients Add
+- 

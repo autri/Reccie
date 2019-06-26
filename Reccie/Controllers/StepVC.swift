@@ -13,23 +13,22 @@ class StepVC: UITableViewController {
 
     var stepsList = [Step]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var recipeObj: Recipe? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSteps()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+//         self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     //MARK: - TableView Datasource Methods
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,13 +38,15 @@ class StepVC: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StepCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "stepCell", for: indexPath)
         cell.textLabel?.text = stepsList[indexPath.row].name
         cell.accessoryType = .detailButton
 
         return cell
     }
  
+    
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -81,32 +82,9 @@ class StepVC: UITableViewController {
         return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
     
     
     //MARK: - Data Manipulation Methods
-    
-    func saveStep() {
-        do {
-            try context.save()
-        } catch {
-            print("Error saving context. \(error)")
-        }
-        
-        self.tableView.reloadData()
-    }
-    
     func loadSteps(with request: NSFetchRequest<Step> = Step.fetchRequest()) {
         do {
             stepsList = try context.fetch(request)
@@ -117,26 +95,31 @@ class StepVC: UITableViewController {
         tableView.reloadData()
     }
     
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? RecipeAddVC {
+            viewController.recipeSteps = stepsList
+        }
+    }
+    
+    
     //MARK: - Add New Recipe Steps
-    
-    
-    @IBAction func addStepButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New Recipe Step", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add Step", style: .default) { (action) in
             // what happens when user taps Add Step button
-
-
+            
+            
             let step = Step(context: self.context)
             step.name = textField.text
-
+            
             print(step.name!)
             self.stepsList.append(step)
             self.tableView.reloadData()
-
-            self.saveStep()
         }
-
+        
+        alert.view.tintColor = UIColor.init(red: 0.0, green: 0.569, blue: 0.576, alpha: 1.0)
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Create new step"
             textField = alertTextField

@@ -7,40 +7,44 @@
 //
 
 import UIKit
+import CoreData
 
 class IngredientVC: UITableViewController {
+    
+    var ingredientList = [Ingredient]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var recipeObj: Recipe? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+//         self.clearsSelectionOnViewWillAppear = false
+        loadIngredient()
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return ingredientList.count
     }
-
-    /*
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath)
+        cell.textLabel?.text = ingredientList[indexPath.row].name
+        cell.accessoryType = .detailButton
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -76,15 +80,46 @@ class IngredientVC: UITableViewController {
         return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    // MARK: - Model Manipulation Methods
+    func loadIngredient(with request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()) {
+        do {
+            ingredientList = try context.fetch(request)
+        } catch {
+            print("Error fetching request. \(error)")
+        }
+        
+        tableView.reloadData()
     }
-    */
 
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? RecipeAddVC {
+            viewController.recipeIngredients = ingredientList
+        }
+    }
+
+    // MARK: - Add New Recipe Ingredients
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Add New Recipe Ingredient", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Add Ingredient", style: .default) { (action) in
+            
+            // what happens when user taps Add Ingredient button
+            let ingredient = Ingredient(context: self.context)
+            ingredient.setValue(textField.text, forKey: "name")
+            
+            print(ingredient.name!)
+            self.ingredientList.append(ingredient)
+            self.tableView.reloadData()
+        }
+        
+        alert.view.tintColor = UIColor.init(red: 0.0, green: 0.569, blue: 0.576, alpha: 1.0)
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Create new ingredient"
+            textField = alertTextField
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
 }

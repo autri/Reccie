@@ -12,13 +12,13 @@ import CoreData
 class RecipeListVC: UITableViewController {
 
     var recipeList = [Recipe]()
-    var recipeDetail = Recipe()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var recipeIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        self.navigationItem.setHidesBackButton(true, animated:true);
         loadRecipe()
         
     }
@@ -41,15 +41,15 @@ class RecipeListVC: UITableViewController {
     //MARK: - Tableview Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        recipeDetail = recipeList[indexPath.row]
+        recipeIndex = indexPath.row
         performSegue(withIdentifier: "showRecipeDetail", sender: self)
     }
     
     //MARK: - Add New Recipes
-   
     @IBAction func addNewRecipe(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "addNewRecipe", sender: self)
     }
+
     
     //MARK: Model Manipulation Methods
     func loadRecipe(with request: NSFetchRequest<Recipe> = Recipe.fetchRequest()) {
@@ -65,7 +65,7 @@ class RecipeListVC: UITableViewController {
     //MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? RecipeDetailVC {
-            viewController.recipeObj = recipeDetail
+            viewController.recipeObj = recipeList[recipeIndex]
         }
     }
 

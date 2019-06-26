@@ -1,0 +1,6 @@
+framework module Pods_Reccie {
+  umbrella header "Pods-Reccie-umbrella.h"
+
+  export *
+  module * { export * }
+}
