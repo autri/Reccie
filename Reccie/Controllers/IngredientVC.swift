@@ -11,6 +11,8 @@ import CoreData
 
 class IngredientVC: UITableViewController {
     
+    //MARK: - Properties
+    
     var ingredientList = [Ingredient]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var recipeObj: Recipe? = nil
@@ -24,9 +26,18 @@ class IngredientVC: UITableViewController {
         loadIngredient()
 
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if self.isMovingFromParent {
+            for ing in ingredientList {
+                print("Print list before transition.. \(ing.name)")
+            }
+        }
+    }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -99,11 +110,11 @@ class IngredientVC: UITableViewController {
         }
     }
 
-    // MARK: - Add New Recipe Ingredients
+    //MARK: - Add New Recipe Ingredients
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New Recipe Ingredient", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Add Ingredient", style: .default) { (action) in
+        let actionAdd = UIAlertAction(title: "Add Ingredient", style: .default) { (action) in
             
             // what happens when user taps Add Ingredient button
             let ingredient = Ingredient(context: self.context)
@@ -114,12 +125,19 @@ class IngredientVC: UITableViewController {
             self.tableView.reloadData()
         }
         
+        let actionCancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+            self.tableView.reloadData()
+        }
+        actionCancel.setValue(UIColor.red, forKey: "titleTextColor")
+        
         alert.view.tintColor = UIColor.init(red: 0.0, green: 0.569, blue: 0.576, alpha: 1.0)
+        alert.view.action
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Create new ingredient"
             textField = alertTextField
         }
-        alert.addAction(action)
+        alert.addAction(actionAdd)
+        alert.addAction(actionCancel)
         present(alert, animated: true, completion: nil)
     }
 }

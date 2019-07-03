@@ -19,7 +19,17 @@ Recipe Add
 - Allows for creation of new recipe, steps, and ingredients
 
 Steps Add
-- 
+- Alert Actions
 
 Ingredients Add
-- 
+- Alert Actions
+
+
+TODOs:
+
+- Disable Search button if no text entered
+- Save Ingredients and Steps to recipes
+- Show ingredients and steps (possibly need to make this a label or tableview
+- Allow swippable Deletes
+- Edits?
+- Settings/Contact

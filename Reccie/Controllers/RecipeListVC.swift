@@ -9,16 +9,20 @@
 import UIKit
 import CoreData
 
-class RecipeListVC: UITableViewController {
-
+class RecipeListVC: UITableViewController, UIPageViewControllerDelegate {
+    
+    //MARK: - Properties
     var recipeList = [Recipe]()
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var recipeIndex = 0
+    let recipeObj = Recipe()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.navigationItem.setHidesBackButton(true, animated:true);
+        
         loadRecipe()
         
     }
@@ -44,14 +48,56 @@ class RecipeListVC: UITableViewController {
         recipeIndex = indexPath.row
         performSegue(withIdentifier: "showRecipeDetail", sender: self)
     }
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "addNewRecipe" {
+            let alert = UIAlertController(title: "Add New Recipe", message: "", preferredStyle: .alert)
+            var tapped = false
+            var textField = UITextField()
+
+            let actionAdd = UIAlertAction(title: "Add Recipe", style: .default) { (action) in
+//                let recipeObj = Recipe(context: self.context)
+                
+                self.recipeObj.name = textField.text!
+                self.saveRecipe()
+                
+                print(self.recipeObj.name!)
+                
+                self.recipeList.append(self.recipeObj)
+                self.recipeIndex = self.recipeList.count - 1
+                
+                self.tableView.reloadData()
+                
+                self.performSegue(withIdentifier: "addNewRecipe", sender: self)
+                tapped = true
+            }
+            let actionCancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+                tapped = false
+            }
+            actionCancel.setValue(UIColor.red, forKey: "titleTextColor")
+            
+            alert.view.tintColor = UIColor.init(red: 0.0, green: 0.569, blue: 0.576, alpha: 1.0)
+            alert.view.action
+            alert.addTextField { (alertTextField) in
+                alertTextField.placeholder = "Create new recipe"
+                textField = alertTextField
+            }
+            
+            alert.addAction(actionAdd)
+            alert.addAction(actionCancel)
+            present(alert, animated: true, completion: nil)
+            
+            return tapped
+        }
+        return true
+    }
     
     //MARK: - Add New Recipes
     @IBAction func addNewRecipe(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "addNewRecipe", sender: self)
     }
 
     
-    //MARK: Model Manipulation Methods
+    //MARK:  - Model Manipulation Methods
     func loadRecipe(with request: NSFetchRequest<Recipe> = Recipe.fetchRequest()) {
         do {
             recipeList = try context.fetch(request)
@@ -62,17 +108,33 @@ class RecipeListVC: UITableViewController {
         tableView.reloadData()
     }
     
-    //MARK: Navigation
+    func saveRecipe() {
+        do {
+            try context.save()
+        } catch {
+            print("Error saving context. \(error)")
+        }
+    }
+    
+    //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? RecipeDetailVC {
             viewController.recipeObj = recipeList[recipeIndex]
         }
+        if let viewController = segue.destination as? RecipeAddVC {
+            viewController.recipeObj = recipeList[recipeIndex]
+        }
+    }
+    
+    @IBAction func unwindAboutPage(unwindSegue: UIStoryboardSegue) {
+        print("unwinding about page")
     }
 
 }
 
+//MARK: - Searchbar Methods
 extension RecipeListVC: UISearchBarDelegate {
-    
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
         request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", searchBar.text!)

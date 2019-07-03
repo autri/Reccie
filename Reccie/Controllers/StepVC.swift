@@ -10,7 +10,8 @@ import UIKit
 import CoreData
 
 class StepVC: UITableViewController {
-
+    
+    //MARK: - Properties
     var stepsList = [Step]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var recipeObj: Recipe? = nil
@@ -107,7 +108,7 @@ class StepVC: UITableViewController {
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New Recipe Step", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Add Step", style: .default) { (action) in
+        let actionAdd = UIAlertAction(title: "Add Step", style: .default) { (action) in
             // what happens when user taps Add Step button
             
             
@@ -119,17 +120,21 @@ class StepVC: UITableViewController {
             self.tableView.reloadData()
         }
         
+        let actionCancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+            self.tableView.reloadData()
+        }
+        actionCancel.setValue(UIColor.red, forKey: "titleTextColor")
+        
         alert.view.tintColor = UIColor.init(red: 0.0, green: 0.569, blue: 0.576, alpha: 1.0)
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Create new step"
             textField = alertTextField
         }
-        alert.addAction(action)
+        alert.addAction(actionAdd)
+        alert.addAction(actionCancel)
         present(alert, animated: true, completion: nil)
     }
     
-    
-    //MARK: - TableView Delegate Methods
     
     
 }

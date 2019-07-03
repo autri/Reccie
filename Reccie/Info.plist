@@ -39,5 +39,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Add a photo to your recipe!</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Take a picture and add to your recipe!</string>
 </dict>
 </plist>

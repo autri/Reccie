@@ -10,6 +10,7 @@ import UIKit
 
 class RecipeDetailVC: UIViewController {
     
+    //MARK: - Properties
     
     var recipeObj: Recipe? = nil
     
@@ -24,8 +25,6 @@ class RecipeDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         // Do any additional setup after loading the view.
         
     }
@@ -34,13 +33,22 @@ class RecipeDetailVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        recipeName.text = recipeObj!.name
-        recipeTimeMins.text = String(recipeObj!.time) + " minutes"
-        recipeServing.text = String(recipeObj!.serving) + " servings"
-        recipeFavorite.text = "Favorite Status: " + (recipeObj!.favorite ? "True" : "False")
+        
+        if let name = recipeObj?.name {
+            recipeName.text = name
+        }
+        if let time = recipeObj?.time {
+            recipeTimeMins.text = String(time) + (time == 1 ? " minute" : " minutes")
+        }
+        if let serving = recipeObj?.serving {
+            recipeServing.text = String(serving) + (serving == 1 ? " serving" : " servings")
+        }
+        if let favorite = recipeObj?.favorite {
+            recipeFavorite.text = "Favorite Status: " + String(favorite)
+        }   
 
-        recipeIngredients.text = recipeObj?.ingredients?.value(forKey: "name") as? String
-        recipeSteps.text = recipeObj?.steps?.value(forKey: "name") as? String
+//        recipeIngredients.text = recipeObj?.ingredients?.value(forKey: "name") as? String
+//        recipeSteps.text = recipeObj?.steps?.value(forKey: "name") as? String
         
 //        // add ingredients, using foreach
 //        recipeIngredients?.forEach({ (ingredient) in
