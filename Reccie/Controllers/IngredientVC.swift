@@ -15,26 +15,16 @@ class IngredientVC: UITableViewController {
     
     var ingredientList = [Ingredient]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var recipeObj: Recipe? = nil
+    var recipeObj: Recipe?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadIngredients()
         
 
         // Uncomment the following line to preserve selection between presentations
 //         self.clearsSelectionOnViewWillAppear = false
-        loadIngredient()
 
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        if self.isMovingFromParent {
-            for ing in ingredientList {
-                print("Print list before transition.. \(ing.name)")
-            }
-        }
     }
 
     // MARK: - Table view data source
@@ -93,22 +83,34 @@ class IngredientVC: UITableViewController {
     */
     
     // MARK: - Model Manipulation Methods
-    func loadIngredient(with request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()) {
-        do {
-            ingredientList = try context.fetch(request)
-        } catch {
-            print("Error fetching request. \(error)")
-        }
-        
+    func loadIngredients() {
         tableView.reloadData()
     }
 
+    func saveIngredients() {
+        for ingredient in ingredientList {
+            recipeObj?.addToIngredients(ingredient)
+        }
+        do {
+            try context.save()
+        } catch {
+            print("Error saving context. \(error)")
+        }
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? RecipeAddVC {
+            saveIngredients()
             viewController.recipeIngredients = ingredientList
+            viewController.recipeObj = recipeObj
         }
     }
+    
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "ingredientsToAddRecipe", sender: self)
+    }
+    
 
     //MARK: - Add New Recipe Ingredients
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {

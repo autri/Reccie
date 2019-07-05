@@ -14,7 +14,7 @@ class RecipeListVC: UITableViewController, UIPageViewControllerDelegate {
     //MARK: - Properties
     var recipeList = [Recipe]()
     var recipeIndex = 0
-    let recipeObj = Recipe()
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
@@ -23,7 +23,7 @@ class RecipeListVC: UITableViewController, UIPageViewControllerDelegate {
         // Do any additional setup after loading the view.
         self.navigationItem.setHidesBackButton(true, animated:true);
         
-        loadRecipe()
+        loadRecipes()
         
     }
     
@@ -54,16 +54,17 @@ class RecipeListVC: UITableViewController, UIPageViewControllerDelegate {
             let alert = UIAlertController(title: "Add New Recipe", message: "", preferredStyle: .alert)
             var tapped = false
             var textField = UITextField()
-
+            var recipeObjList = Recipe(context: context)
+            
             let actionAdd = UIAlertAction(title: "Add Recipe", style: .default) { (action) in
-//                let recipeObj = Recipe(context: self.context)
                 
-                self.recipeObj.name = textField.text!
+//                self.recipeObj = Recipe(context: self.context)
+                recipeObjList.name = textField.text!
                 self.saveRecipe()
                 
-                print(self.recipeObj.name!)
+                print("From recipe List action add \(recipeObjList.name!)")
                 
-                self.recipeList.append(self.recipeObj)
+                self.recipeList.append(recipeObjList)
                 self.recipeIndex = self.recipeList.count - 1
                 
                 self.tableView.reloadData()
@@ -98,7 +99,7 @@ class RecipeListVC: UITableViewController, UIPageViewControllerDelegate {
 
     
     //MARK:  - Model Manipulation Methods
-    func loadRecipe(with request: NSFetchRequest<Recipe> = Recipe.fetchRequest()) {
+    func loadRecipes(with request: NSFetchRequest<Recipe> = Recipe.fetchRequest()) {
         do {
             recipeList = try context.fetch(request)
         } catch {
@@ -108,6 +109,7 @@ class RecipeListVC: UITableViewController, UIPageViewControllerDelegate {
         tableView.reloadData()
     }
     
+    // consider removing this since saves and edits won't take place here
     func saveRecipe() {
         do {
             try context.save()
@@ -140,12 +142,12 @@ extension RecipeListVC: UISearchBarDelegate {
         request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", searchBar.text!)
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
-        loadRecipe(with: request)
+        loadRecipes(with: request)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
-            loadRecipe()
+            loadRecipes()
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
             }

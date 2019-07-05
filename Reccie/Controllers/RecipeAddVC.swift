@@ -7,28 +7,41 @@
 //
 
 import UIKit
+import CoreData
 
 class RecipeAddVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //MARK: - Properties
     @IBOutlet weak var recipePhoto: UIImageView!
+    @IBOutlet weak var recipeNamePlaceholder: UITextField!
+    @IBOutlet weak var recipeTimePlaceholder: UITextField!
+    @IBOutlet weak var recipeServingPlaceholder: UITextField!
+    @IBOutlet weak var recipeFavoritePlaceholder: UISwitch!
+    
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    var recipeObj: Recipe? = nil
+    var recipeObj: Recipe?
     
-    var recipeName = ""
+    var recipeName: String?
     var recipeTime = 0
     var recipeServing = 0
     var recipeFavorite = false
     
-    var recipeIngredients: [Ingredient]? = nil
-    var recipeSteps: [Step]? = nil
+    var recipeIngredients: [Ingredient]?
+    var recipeSteps: [Step]?
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        loadRecipe()
+        
+        recipeNamePlaceholder.text = recipeObj?.name
+        recipeSteps = recipeObj?.steps?.allObjects as? [Step]
+        recipeIngredients = recipeObj?.ingredients?.allObjects as? [Ingredient]
+        
+        
         
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
@@ -37,6 +50,18 @@ class RecipeAddVC: UIViewController, UITextFieldDelegate, UIImagePickerControlle
         
         
         // Do any additional setup after loading the view.
+        if recipeObj?.serving != 0 {
+            recipeServingPlaceholder.text = String(recipeObj!.serving)
+            recipeServing = Int(recipeObj!.serving)
+        }
+        
+        if recipeObj?.time != 0 {
+            recipeTimePlaceholder.text = String(recipeObj!.time)
+            recipeTime = Int(recipeObj!.time)
+        }
+        
+        recipeFavoritePlaceholder.isOn = (recipeObj?.favorite)!
+        recipeFavorite = recipeObj!.favorite
     }
     
     //MARK: - UIImagePickerControllerDelegate
@@ -80,7 +105,8 @@ class RecipeAddVC: UIViewController, UITextFieldDelegate, UIImagePickerControlle
         } else {
             print("Name not found. Name is required. Give name.")
         }
-        print(recipeName)
+        
+        print("From recipe name IBAction \(recipeName)")
         
     }
     
@@ -108,51 +134,80 @@ class RecipeAddVC: UIViewController, UITextFieldDelegate, UIImagePickerControlle
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        recipeObj = Recipe(context: context)
-        recipeObj!.name = recipeName
-        recipeObj!.time = Int32(recipeTime)
-        recipeObj!.serving = Int32(recipeServing)
-        recipeObj!.favorite = recipeFavorite
-        
-        print(recipeIngredients?[0].name)
-        
         saveRecipe()
-        
-//        recipeIngredients?[0].parentRecipe = recipeObj
-//        // add ingredients, using foreach
-//        recipeIngredients?.forEach({ (ingredient) in
-//            self.recipeObj!.addToIngredients(ingredient)
-//        })
-//
-//        // add steps, using foreach
-//        recipeSteps?.forEach({ (step) in
-//            self.recipeObj!.addToSteps(step)
-//        })
-//
-//        saveRecipe()
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+        // add method to delete the recipe object
+        deleteRecipe()
         performSegue(withIdentifier: "recipeList", sender: self)
     }
     
-    
+    //MARK: - Model Manipulation
     func saveRecipe() {
+        // user never interacted with recipe name field, so don't set the name to nil
+        if recipeName != nil {
+            recipeObj?.name = recipeName
+        }
+        
+        if recipeTime != nil {
+            recipeObj!.time = Int32(recipeTime)
+        }
+        if recipeServing != nil {
+            recipeObj!.serving = Int32(recipeServing)
+        }
+        if recipeFavorite != nil {
+            recipeObj!.favorite = recipeFavorite
+        }
+        
+        
+        
         do {
             try context.save()
         } catch {
             print("Error saving context. \(error)")
         }
     }
+    
+    func deleteRecipe() {
+        if let deletedRecipe = recipeObj {
+            context.delete(deletedRecipe)
+            saveRecipe()
+        }
+    }
+    
+    // consider removing if not used
+    func loadRecipe(with request: NSFetchRequest<Recipe> = Recipe.fetchRequest()) {
+        do {
+            let entity = NSEntityDescription.entity(forEntityName: "Recipe", in: context)
+            var recipe = NSManagedObject(entity: entity!, insertInto: context)
+            
+            var recipes: [Recipe] = []
+            recipes = try context.fetch(request)
+            recipe = recipes.last!
+            recipeObj = context.object(with: recipe.objectID) as? Recipe
+            
+        } catch {
+            print("Error fetching request. \(error)")
+        }
+    }
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? IngredientVC {
+            saveRecipe()
             viewController.recipeObj = recipeObj
+            if let ingredients = recipeIngredients {
+                viewController.ingredientList = ingredients
+            }
         }
         
         if let viewController = segue.destination as? StepVC {
+            saveRecipe()
             viewController.recipeObj = recipeObj
+            if let steps = recipeSteps {
+                viewController.stepsList = steps
+            }
         }
         
     }

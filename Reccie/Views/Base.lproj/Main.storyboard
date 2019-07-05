@@ -278,7 +278,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="275" placeholderIntrinsicHeight="150" image="cameraicon" translatesAutoresizingMaskIntoConstraints="NO" id="79Z-9M-wla">
-                                <rect key="frame" x="50" y="108" width="314" height="150"/>
+                                <rect key="frame" x="50" y="108" width="275.5" height="150"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="79Z-9M-wla" secondAttribute="height" multiplier="11:6" id="qq8-oa-ERz"/>
@@ -289,16 +289,16 @@
                                 </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OMD-jA-ccs" userLabel="RecipeName SV">
-                                <rect key="frame" x="20" y="281" width="374" height="60.5"/>
+                                <rect key="frame" x="20" y="281" width="335.5" height="60.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wf3-kW-ebR">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Chocolate Chip Cookies.." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z1k-pS-cqU">
-                                        <rect key="frame" x="0.0" y="30.5" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="30.5" width="335.5" height="30"/>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -311,10 +311,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="xa5-Ja-Cse" userLabel="Buttons SV">
-                                <rect key="frame" x="20" y="468" width="374" height="158"/>
+                                <rect key="frame" x="20" y="468" width="335.5" height="158"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2p5-8w-rvg">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335.5" height="36"/>
                                         <color key="backgroundColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <state key="normal" title="Add Recipe Steps">
@@ -325,7 +325,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKn-oV-0IK">
-                                        <rect key="frame" x="0.0" y="61" width="374" height="36"/>
+                                        <rect key="frame" x="0.0" y="61" width="335.5" height="36"/>
                                         <color key="backgroundColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <state key="normal" title="Add Recipe Ingredients">
@@ -336,7 +336,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rV9-1x-TZJ">
-                                        <rect key="frame" x="0.0" y="122" width="374" height="36"/>
+                                        <rect key="frame" x="0.0" y="122" width="335.5" height="36"/>
                                         <color key="backgroundColor" red="0.0" green="0.56862745098039214" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <state key="normal" title="Save Recipe">
@@ -351,19 +351,19 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="62" translatesAutoresizingMaskIntoConstraints="NO" id="Vof-d6-hU5" userLabel="AttributesSV">
-                                <rect key="frame" x="20" y="368.5" width="374" height="61.5"/>
+                                <rect key="frame" x="20" y="368.5" width="335.5" height="61.5"/>
                                 <subviews>
                                     <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wuz-9J-Kkm" userLabel="TimeSV">
-                                        <rect key="frame" x="0.0" y="0.0" width="83.5" height="61.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="70.5" height="61.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time (mins)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VUM-vO-94S">
-                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="45..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vpL-f3-wLk">
-                                                <rect key="frame" x="0.0" y="30.5" width="83.5" height="31"/>
+                                                <rect key="frame" x="0.0" y="30.5" width="70.5" height="31"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -376,16 +376,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kH1-LV-1qS" userLabel="ServingsSV">
-                                        <rect key="frame" x="145.5" y="0.0" width="83" height="61.5"/>
+                                        <rect key="frame" x="132.5" y="0.0" width="70.5" height="61.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Servings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gNe-8f-81L">
-                                                <rect key="frame" x="0.0" y="0.0" width="83" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="6..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BNq-jj-Brc">
-                                                <rect key="frame" x="0.0" y="30.5" width="83" height="31"/>
+                                                <rect key="frame" x="0.0" y="30.5" width="70.5" height="31"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -398,16 +398,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VS9-hA-bHi" userLabel="FavoriteSV">
-                                        <rect key="frame" x="290.5" y="0.0" width="83.5" height="61.5"/>
+                                        <rect key="frame" x="265" y="0.0" width="70.5" height="61.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LbG-EA-eRT">
-                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IgK-yp-fiI">
-                                                <rect key="frame" x="0.0" y="30.5" width="85.5" height="31"/>
+                                                <rect key="frame" x="0.0" y="30.5" width="72.5" height="31"/>
                                                 <color key="tintColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="onTintColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
@@ -449,7 +449,11 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="recipeFavoritePlaceholder" destination="IgK-yp-fiI" id="AAG-wJ-0q1"/>
+                        <outlet property="recipeNamePlaceholder" destination="Z1k-pS-cqU" id="szm-GB-ouU"/>
                         <outlet property="recipePhoto" destination="79Z-9M-wla" id="6Te-Tt-Onp"/>
+                        <outlet property="recipeServingPlaceholder" destination="BNq-jj-Brc" id="S5f-KO-Gbd"/>
+                        <outlet property="recipeTimePlaceholder" destination="vpL-f3-wLk" id="IqQ-Wu-LmE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q18-6g-2bV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -486,6 +490,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Ingredients" id="s0f-LR-rUk">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="hSc-2V-nBr">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="xYf-oL-2GZ" id="Bqb-yC-4sf"/>
+                                <segue destination="RTO-9k-WXV" kind="show" identifier="ingredientsToAddRecipe" id="EPx-r9-0k1"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="B5n-VH-Ds3">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -522,6 +533,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Steps" id="fVg-bX-fTt">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="AFM-Rg-Ywn">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="toR-ga-ivi" id="hgB-d8-tRt"/>
+                                <segue destination="RTO-9k-WXV" kind="show" identifier="stepsToAddRecipe" id="IjL-dK-ZwI"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YPY-ZF-Gi5">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -565,6 +583,8 @@
         <image name="cameraicon" width="341" height="290.5"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="3Gb-uD-GJU"/>
+        <segue reference="EPx-r9-0k1"/>
         <segue reference="CeO-kh-m1R"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

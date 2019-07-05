@@ -14,11 +14,14 @@ class StepVC: UITableViewController {
     //MARK: - Properties
     var stepsList = [Step]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var recipeObj: Recipe? = nil
+    var recipeObj: Recipe?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSteps()
+        
+        
+
 
         // Uncomment the following line to preserve selection between presentations
 //         self.clearsSelectionOnViewWillAppear = false
@@ -86,21 +89,32 @@ class StepVC: UITableViewController {
     
     
     //MARK: - Data Manipulation Methods
-    func loadSteps(with request: NSFetchRequest<Step> = Step.fetchRequest()) {
-        do {
-            stepsList = try context.fetch(request)
-        } catch {
-            print("Error fetching request. \(error)")
-        }
-        
+    func loadSteps() {
         tableView.reloadData()
+    }
+    
+    func saveSteps() {
+        for step in stepsList {
+            recipeObj?.addToSteps(step)
+        }
+        do {
+            try context.save()
+        } catch {
+            print("Error saving context. \(error)")
+        }
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? RecipeAddVC {
+            saveSteps()
             viewController.recipeSteps = stepsList
+            viewController.recipeObj = recipeObj
         }
+    }
+    
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "stepsToAddRecipe", sender: self)
     }
     
     
@@ -134,7 +148,4 @@ class StepVC: UITableViewController {
         alert.addAction(actionCancel)
         present(alert, animated: true, completion: nil)
     }
-    
-    
-    
 }

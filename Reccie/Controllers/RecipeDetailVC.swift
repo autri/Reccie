@@ -27,8 +27,15 @@ class RecipeDetailVC: UIViewController {
         
         // Do any additional setup after loading the view.
         
+        recipeIngredients.isEditable = false
+        recipeSteps.isEditable = false
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        recipeIngredients.contentOffset = .zero
+        recipeSteps.contentOffset = .zero
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -45,20 +52,23 @@ class RecipeDetailVC: UIViewController {
         }
         if let favorite = recipeObj?.favorite {
             recipeFavorite.text = "Favorite Status: " + String(favorite)
-        }   
-
-//        recipeIngredients.text = recipeObj?.ingredients?.value(forKey: "name") as? String
-//        recipeSteps.text = recipeObj?.steps?.value(forKey: "name") as? String
+        }
         
-//        // add ingredients, using foreach
-//        recipeIngredients?.forEach({ (ingredient) in
-//            self.recipeObj!.addToIngredients(ingredient)
-//        })
-//
-//        // add steps, using foreach
-//        recipeSteps?.forEach({ (step) in
-//            self.recipeObj!.addToSteps(step)
-//        })
+        if let steps = recipeObj?.steps?.allObjects as? [Step] {
+            var stepsString = ""
+            for step in steps {
+                stepsString += "\(step.name!) \n"
+            }
+            recipeSteps.text = stepsString
+        }
+        
+        if let ingredients = recipeObj?.ingredients?.allObjects as? [Ingredient] {
+            var ingredientsString = ""
+            for ingredient in ingredients {
+                ingredientsString += "\(ingredient.name!) \n"
+            }
+            recipeIngredients.text = ingredientsString
+        }
     }
 
     
