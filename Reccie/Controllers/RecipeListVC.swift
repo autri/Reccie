@@ -35,11 +35,21 @@ class RecipeListVC: UITableViewController, UIPageViewControllerDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeItemCell", for: indexPath)
-        cell.textLabel?.text = recipeList[indexPath.row].name
-        cell.accessoryType = .disclosureIndicator
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeItemCell", for: indexPath) as? RecipeCellTableViewCell else {
+            fatalError("The dequeued cell is not an instance of RecipeItemCell.")
+        }
+        
+        cell.recipeName.text = (recipeList[indexPath.row].name != "" ? recipeList[indexPath.row].name : "No Recipe Name")
+        cell.recipeTime.text = (recipeList[indexPath.row].time != 0 ? String(recipeList[indexPath.row].time) + " minutes" : "No Time")
+        cell.recipeServings.text = (recipeList[indexPath.row].serving != 0 ? String(recipeList[indexPath.row].serving) + " servings" : "No Servings")
+//        cell.recipeFavorite. = String(recipeList[indexPath.row].time)
+//        cell.accessoryType = .disclosureIndicator
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180
     }
     
     //MARK: - Tableview Delegate Methods
@@ -73,6 +83,7 @@ class RecipeListVC: UITableViewController, UIPageViewControllerDelegate {
                 tapped = true
             }
             let actionCancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+                self.context.delete(recipeObjList)
                 tapped = false
             }
             actionCancel.setValue(UIColor.red, forKey: "titleTextColor")

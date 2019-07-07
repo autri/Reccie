@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06011BF922D02A610037933D /* ReccieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06011BF822D02A610037933D /* ReccieTests.swift */; };
+		06011C0122D148170037933D /* RecipeCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06011C0022D148170037933D /* RecipeCellTableViewCell.swift */; };
 		0661A24E22B70BD90065F636 /* StepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661A24D22B70BD90065F636 /* StepVC.swift */; };
 		0661A25022B8888F0065F636 /* RecipeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661A24F22B8888F0065F636 /* RecipeDetailVC.swift */; };
 		0661A25222B888B50065F636 /* RecipeAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661A25122B888B50065F636 /* RecipeAddVC.swift */; };
@@ -20,7 +22,21 @@
 		4D19A5E5C9C1E9CB26FE4EB6 /* Pods_Reccie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3F39829B797A60E3C913CD /* Pods_Reccie.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		06011BFB22D02A610037933D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06B39D5D22B0A28100AF219A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06B39D6422B0A28100AF219A;
+			remoteInfo = Reccie;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		06011BF622D02A610037933D /* ReccieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReccieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		06011BF822D02A610037933D /* ReccieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReccieTests.swift; sourceTree = "<group>"; };
+		06011BFA22D02A610037933D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06011C0022D148170037933D /* RecipeCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellTableViewCell.swift; sourceTree = "<group>"; };
 		0661A24D22B70BD90065F636 /* StepVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepVC.swift; sourceTree = "<group>"; };
 		0661A24F22B8888F0065F636 /* RecipeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailVC.swift; sourceTree = "<group>"; };
 		0661A25122B888B50065F636 /* RecipeAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAddVC.swift; sourceTree = "<group>"; };
@@ -39,6 +55,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		06011BF322D02A610037933D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		06B39D6222B0A28100AF219A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -50,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06011BF722D02A610037933D /* ReccieTests */ = {
+			isa = PBXGroup;
+			children = (
+				06011BF822D02A610037933D /* ReccieTests.swift */,
+				06011BFA22D02A610037933D /* Info.plist */,
+			);
+			path = ReccieTests;
+			sourceTree = "<group>";
+		};
 		0669807C22B3511B00231C2F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +98,7 @@
 				0661A24F22B8888F0065F636 /* RecipeDetailVC.swift */,
 				0661A25122B888B50065F636 /* RecipeAddVC.swift */,
 				0661A25322B888E50065F636 /* IngredientVC.swift */,
+				06011C0022D148170037933D /* RecipeCellTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -91,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				06B39D6722B0A28100AF219A /* Reccie */,
+				06011BF722D02A610037933D /* ReccieTests */,
 				06B39D6622B0A28100AF219A /* Products */,
 				CE66115E92B9FFF70D8B8B32 /* Pods */,
 				7DD4207E1FC7AA3F14D365CD /* Frameworks */,
@@ -101,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				06B39D6522B0A28100AF219A /* Reccie.app */,
+				06011BF622D02A610037933D /* ReccieTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,6 +173,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		06011BF522D02A610037933D /* ReccieTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06011BFD22D02A610037933D /* Build configuration list for PBXNativeTarget "ReccieTests" */;
+			buildPhases = (
+				06011BF222D02A610037933D /* Sources */,
+				06011BF322D02A610037933D /* Frameworks */,
+				06011BF422D02A610037933D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				06011BFC22D02A610037933D /* PBXTargetDependency */,
+			);
+			name = ReccieTests;
+			productName = ReccieTests;
+			productReference = 06011BF622D02A610037933D /* ReccieTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		06B39D6422B0A28100AF219A /* Reccie */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06B39D7722B0A28200AF219A /* Build configuration list for PBXNativeTarget "Reccie" */;
@@ -167,6 +220,10 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Autri Baghkhanian";
 				TargetAttributes = {
+					06011BF522D02A610037933D = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 06B39D6422B0A28100AF219A;
+					};
 					06B39D6422B0A28100AF219A = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -186,11 +243,19 @@
 			projectRoot = "";
 			targets = (
 				06B39D6422B0A28100AF219A /* Reccie */,
+				06011BF522D02A610037933D /* ReccieTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		06011BF422D02A610037933D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		06B39D6322B0A28100AF219A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,6 +311,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		06011BF222D02A610037933D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06011BF922D02A610037933D /* ReccieTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		06B39D6122B0A28100AF219A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -253,6 +326,7 @@
 				0661A25222B888B50065F636 /* RecipeAddVC.swift in Sources */,
 				0661A24E22B70BD90065F636 /* StepVC.swift in Sources */,
 				0661A25422B888E50065F636 /* IngredientVC.swift in Sources */,
+				06011C0122D148170037933D /* RecipeCellTableViewCell.swift in Sources */,
 				0669808222B3622200231C2F /* DataModel.xcdatamodeld in Sources */,
 				06B39D6B22B0A28100AF219A /* RecipeListVC.swift in Sources */,
 				0661A25022B8888F0065F636 /* RecipeDetailVC.swift in Sources */,
@@ -261,6 +335,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		06011BFC22D02A610037933D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06B39D6422B0A28100AF219A /* Reccie */;
+			targetProxy = 06011BFB22D02A610037933D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		06B39D6C22B0A28100AF219A /* Main.storyboard */ = {
@@ -282,6 +364,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		06011BFE22D02A610037933D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G62G9JAHK4;
+				INFOPLIST_FILE = ReccieTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.autri.ReccieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reccie.app/Reccie";
+			};
+			name = Debug;
+		};
+		06011BFF22D02A610037933D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G62G9JAHK4;
+				INFOPLIST_FILE = ReccieTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.autri.ReccieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reccie.app/Reccie";
+			};
+			name = Release;
+		};
 		06B39D7522B0A28200AF219A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -439,6 +561,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		06011BFD22D02A610037933D /* Build configuration list for PBXNativeTarget "ReccieTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06011BFE22D02A610037933D /* Debug */,
+				06011BFF22D02A610037933D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		06B39D6022B0A28100AF219A /* Build configuration list for PBXProject "Reccie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
