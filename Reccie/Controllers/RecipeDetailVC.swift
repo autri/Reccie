@@ -18,6 +18,7 @@ class RecipeDetailVC: UIViewController {
     @IBOutlet weak var recipeTimeMins: UILabel!
     @IBOutlet weak var recipeServing: UILabel!
     @IBOutlet weak var recipeFavorite: UILabel!
+    @IBOutlet weak var recipeImage: UIImageView!
     
     @IBOutlet weak var recipeIngredients: UITextView!
     @IBOutlet weak var recipeSteps: UITextView!
@@ -69,8 +70,16 @@ class RecipeDetailVC: UIViewController {
             }
             recipeIngredients.text = ingredientsString
         }
+        
+        if let imageData = recipeObj?.image {
+            recipeImage.image = UIImage(data: imageData)
+        } else {
+            recipeImage.image = UIImage(named: "cameraicon")
+        }
     }
 
+    @IBAction func editButtonPressed(_ sender: Any) {
+    }
     
     
     

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class RecipeAddVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class RecipeEditVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //MARK: - Properties
     @IBOutlet weak var recipePhoto: UIImageView!
@@ -77,6 +77,8 @@ class RecipeAddVC: UIViewController, UITextFieldDelegate, UIImagePickerControlle
         
         // Set photoImageView to display the selected image.
         recipePhoto.image = selectedImage
+        recipeObj?.image = selectedImage.pngData()
+        
         
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
@@ -159,7 +161,9 @@ class RecipeAddVC: UIViewController, UITextFieldDelegate, UIImagePickerControlle
         if recipeFavorite != nil {
             recipeObj!.favorite = recipeFavorite
         }
-        
+        if recipePhoto != nil {
+            recipeObj?.image = recipePhoto.image?.pngData()
+        }
         
         
         do {
