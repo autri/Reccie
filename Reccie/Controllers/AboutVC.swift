@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class AboutVC: UIViewController {
+class AboutVC: UIViewController, MFMailComposeViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,8 +18,37 @@ class AboutVC: UIViewController {
     }
     
     @IBAction func emailButtonPressed(_ sender: Any) {
-        //TODO: Implement email event
-     
+        print("email button pressed")
+//
+//        let email = "reccieapp@gmail.com"
+//        if let url = URL(string: "mailto:\(email)") {
+//            if #available(iOS 10.0, *) {
+//                UIApplication.shared.open(url)
+//            } else {
+//                UIApplication.shared.openURL(url)
+//            }
+//        }
+        
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["reccieapp@gmail.com"])
+            mail.setSubject("Feedback from Reccie App")
+            
+            present(mail, animated: true)
+        } else {
+            // show failure alert
+            let alert = UIAlertController(title: "Email Client Not Found", message: "It doesn't look like you have an email client set up.", preferredStyle: .actionSheet)
+            let actionOK = UIAlertAction(title: "OK", style: .default) { (action) in
+                
+            }
+            alert.addAction(actionOK)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
     
     /*

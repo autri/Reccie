@@ -79,7 +79,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXp-SZ-HfN">
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXp-SZ-HfN">
                                                     <rect key="frame" x="235.5" y="0.0" width="109.5" height="50"/>
                                                     <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <connections>
@@ -322,7 +322,7 @@
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                         <state key="normal" title="reccieapp@gmail.com"/>
                                         <connections>
-                                            <action selector="emailButtonPressed:" destination="AJq-l6-hsc" eventType="touchUpInside" id="SB0-xb-ShN"/>
+                                            <action selector="emailButtonPressed:" destination="ys0-id-SsD" eventType="touchUpInside" id="OZR-ry-aKK"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVO-qn-ZbP">
@@ -754,7 +754,7 @@
         <image name="cameraicon" width="341" height="290.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cc5-pX-ZlS"/>
+        <segue reference="n9b-Y1-qGK"/>
         <segue reference="CeO-kh-m1R"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

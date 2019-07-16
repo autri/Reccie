@@ -15,7 +15,7 @@ class RecipeListVC: UITableViewController, UIPageViewControllerDelegate {
     var recipeList = [Recipe]()
     var recipeIndex = 0
     @IBOutlet weak var starButton: UIButton!
-    let starImage = UIImage(named: "Image-1")?.withRenderingMode(.alwaysTemplate)
+    let starImage = UIImage(named: "star")?.withRenderingMode(.alwaysTemplate)
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -56,9 +56,14 @@ class RecipeListVC: UITableViewController, UIPageViewControllerDelegate {
             cell.recipeFavorite.tintColor = UIColor(ciColor: .red)
         } else {
             cell.recipeFavorite.setImage(starImage, for: UIControl.State.normal)
-            cell.recipeFavorite.tintColor = UIColor(ciColor: .blue)
-
+            cell.recipeFavorite.tintColor = UIColor(ciColor: .black)
         }
+        
+        cell.recipeFavorite.tag = indexPath.row
+        cell.recipeFavorite.addTarget(self, action: #selector(favoriteButtonPressed), for: .touchUpInside)
+        
+        let starImageView = cell.recipeFavorite.imageView
+        starImageView?.contentMode = .scaleAspectFit
         
         return cell
     }
@@ -123,7 +128,11 @@ class RecipeListVC: UITableViewController, UIPageViewControllerDelegate {
     @IBAction func addNewRecipe(_ sender: UIBarButtonItem) {
     }
 
-    @IBAction func favoriteButtonPressed(_ sender: UIButton) {
+    @objc @IBAction func favoriteButtonPressed(_ sender: UIButton) {
+        let selectedIndexPath = NSIndexPath.init(row: sender.tag, section: 0)
+        recipeList[selectedIndexPath.item].favorite = !recipeList[selectedIndexPath.item].favorite
+        saveRecipe()
+        tableView.reloadData()
     }
     
     //MARK:  - Model Manipulation Methods
